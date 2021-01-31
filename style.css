@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9db9a2;
+    color: rgb(80, 24, 80);
+  }
+  
+
+  fieldset {
+    padding: 25px;
+    padding-top: 5px;
+    line-height: 30px;
+    justify-content: center;
+    display: inline-block;
+    background-color: rgb(154, 175, 207);
+  }
+  
+  ul {
+      list-style: none;
+      background-color:  rgb(154, 175, 207);
+      border: 2px solid rgb(80, 24, 80);
+  }
+
+  hr {
+      color: rgb(80, 24, 80);
+  }
+
+  #resultsList h2 {
+      color: rgb(80, 24, 80);
+  }
+
+  .hidden {
+      display: none;
+  }
