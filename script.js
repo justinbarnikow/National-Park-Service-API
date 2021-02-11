@@ -1,60 +1,32 @@
-'use strict'
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  </head>
+  <body>
 
-const basicUrl = "https://developer.nps.gov/api/v1/parks"
-const apiKey = "trljqBfEwdUdQqQu8TpVQdjnKEedC16GS6J7oRyf"
+    <h1>National Park Services API Project</h1>
+    <div>
+        <form>
+          <fieldset>
+            <h1>Parks & Monuments API</h1>
+            <label for="jsStateChoice">State: </label>
+              <input id="jsStateChoice" type="text" placeholder="new jersey.." required >
+              </br>
+            <label>Max: </label>
+            <input type="number" name="numberInput" id="jsNumberChoice" min="1" max="50" value="10" required />
+            <input type="submit" value="search" />
+          </fieldset>
+        </form>
+    </div>
+    <div class="results hidden">
+        <ul id="resultsList"></ul>
+    </div>
 
-function formatQueryParams(params) {
-  const queryItems = Object.keys(params).map(
-    key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-  );
-  return queryItems.join("&");
-}
-
-function displayResults(responseJson) {
-   const numberChoice = $('#jsNumberChoice').val();
-  $('#resultsList').empty();
-
-
-  for(let i = 0; i < responseJson.data.length && i < numberChoice; i++) {
-    $('#resultsList').append(`
-      <li><h2>${responseJson.data[i].fullName}</h2></li>
-      <li><p>${responseJson.data[i].description}</p></li>
-      <li><a href ="${responseJson.data[i].url}">Click here to learn more directly from the website.</a></li>
-      <hr>
-    `)
-  }
-  $('.results').removeClass('hidden')
-}
-
-function getPark(query, maxResults=10) {
-  const params = {
-    api_key: apiKey,
-    q: query,
-    maxResults
-  }
-
-  const queryString = formatQueryParams(params);
-  const url = basicUrl + "?" + queryString;
-  console.log(url);
-
-  fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then(responseJson => displayResults(responseJson))
-    .catch(error => alert('Oops! Looks like something went wrong.'))
-}
-
-function clickSearchButton() {
-    $('form').submit(event => {
-        event.preventDefault();
-        const stateChoice = $('#jsStateChoice').val();
-        const numberChoice = $('#jsNumberChoice').val();
-        getPark(stateChoice, numberChoice);
-    });
-}
-
-$(clickSearchButton);
+    <script src="script.js"></script>
+  </body>
+</html>
