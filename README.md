@@ -1,10 +1,8 @@
 # National-Park-Service-API
+https://justinbarnikow.github.io/National-Park-Service-API/
 
 ## Description
-Travel Pod is an app-based site created for users looking for a podcast for an upcoming drive. Users can enter their starting location and final destination, as well as their podcast interests, and a curated list of podcasts will be shown to the user. It is a list based on the length of the user's trip. This is done by multiple API's taking the location and turning it into GPS coordinates, pulling the trip distance in minutes, and appending podcasts of a certain length with a specified margin of error.
-
-## Motivation
-I wanted a podcast search engine that really filled a specific need for people. Users shouldn't have to worry about playing a new podcast while driving, or always keeping track of "where they left off" because the drive and podcasts are totally different lengths.
+National Park Service API is an app that creates a list of national parks within a selected state. The form takes in a 'state' input and a max number of results to display.
 
 ## Screenshots
 ### Main Page
@@ -19,12 +17,8 @@ I wanted a podcast search engine that really filled a specific need for people. 
 * jQuery
 * HTML
 * CSS
-* Listen API
-* Bing Distance Matrix API
-* Mapbox Geocoding
-* Git/GitHub
 
 ## Features
-* search through a list of podcasts based on user trip
-* find out how long a certain trip is
-* go to podcasts' direct website or episode URL
+* search through a list of national parks & monuments
+* filter through each state
+* able to go directly to website or link
